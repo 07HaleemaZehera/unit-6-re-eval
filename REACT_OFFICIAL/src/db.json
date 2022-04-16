@@ -1,0 +1,28 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "Country": "India",
+      "City": "banglore",
+      "Population": 5678987
+    },
+    {
+      "id": 2,
+      "Country": "Singapore",
+      "City": "bangkok",
+      "Population": 928987
+    },
+    {
+      "id": 3,
+      "Country": "Kolkata",
+      "City": "bandra",
+      "Population": 58987
+    },
+    {
+      "id": 4,
+      "Country": "Belgium",
+      "City": "mexico",
+      "Population": 78987
+    }
+  ]
+}
