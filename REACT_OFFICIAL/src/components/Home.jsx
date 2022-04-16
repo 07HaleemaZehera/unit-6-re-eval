@@ -11,7 +11,8 @@ import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { useSelector, useDispatch } from "react-redux";
-import { loadUsers } from "../Redux/action";
+import { deleteUsers, loadUsers } from "../Redux/action";
+import {useNavigate} from "react-router-dom"
 const useButtonStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -45,13 +46,13 @@ function createData(id, Country, City, Population) {
   return { id, Country, City, Population };
 }
 
-// const rows = [
-//   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-//   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-//   createData("Eclair", 262, 16.0, 24, 6.0),
-//   createData("Cupcake", 305, 3.7, 67, 4.3),
-//   createData("Gingerbread", 356, 16.0, 49, 3.9),
-// ];
+const rows = [
+  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  createData("Eclair", 262, 16.0, 24, 6.0),
+  createData("Cupcake", 305, 3.7, 67, 4.3),
+  createData("Gingerbread", 356, 16.0, 49, 3.9),
+];
 
 const useStyles = makeStyles({
   table: {
@@ -60,17 +61,33 @@ const useStyles = makeStyles({
   },
 });
 
+
+
 export default function Home() {
   const classes = useStyles();
   const buttonStyles=useButtonStyles()
   const dispatch = useDispatch();
+  const navigate=useNavigate()
   const { users } = useSelector((state) => state.data);
 
   useEffect(() => {
     dispatch(loadUsers());
   }, []);
+
+
+  const handledelete=(id)=>{
+    if(window.confirm("Are you sure ,you want to delete?")){
+      dispatch(deleteUsers(id))
+    }
+    }
   return (
     <div>
+
+      <div className={buttonStyles.root}>
+      <Button variant="contained" color="primary" onClick={()=>navigate("/addCountry")}>
+Add Country
+      </Button>
+      </div>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -101,8 +118,8 @@ export default function Home() {
                       aria-label="contained primary button group"
                     >
                      
-                      <Button  color="secondary" >EDIT</Button>
-                      <Button    color="primary">DELETE</Button>
+                      <Button  color="secondary" onClick={()=>navigate(`/editCountry/${user.id}`) } >EDIT</Button>
+                      <Button    color="primary" onClick={()=>handledelete(user.id)}>DELETE</Button>  
                     </ButtonGroup>
                    </div>
                   </StyledTableCell>
