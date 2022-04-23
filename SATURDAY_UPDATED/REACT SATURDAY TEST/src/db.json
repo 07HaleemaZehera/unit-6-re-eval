@@ -1,0 +1,60 @@
+{
+  "country": [
+    {
+      "name": "America",
+      "id": 2
+    },
+    {
+      "name": "Bharat",
+      "id": 3
+    },
+    {
+      "name": "Russia",
+      "id": 4
+    },
+    {
+      "name": "India",
+      "id": 5
+    },
+    {
+      "name": "China",
+      "id": 6
+    },
+    {
+      "name": "Haleema",
+      "id": 7
+    }
+  ],
+  "city": [
+    {
+      "CityName": "Bihar",
+      "Population": "34343",
+      "Name": "Bharat",
+      "id": 4
+    },
+    {
+      "CityName": "New York",
+      "Population": "534354",
+      "Name": "America",
+      "id": 6
+    },
+    {
+      "CityName": "mexican",
+      "Population": "343435",
+      "Name": "India",
+      "id": 7
+    },
+    {
+      "CityName": "Holland",
+      "Population": "fsdf",
+      "Name": "Bharat",
+      "id": 11
+    },
+    {
+      "CityName": "Bangalore",
+      "Population": "6789",
+      "Name": "India",
+      "id": 12
+    }
+  ]
+}
